@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodel C. Bantog — CRM Systems, Web Builds &amp; Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10151F;
+    --ink-soft:#1B2333;
+    --ink-line:#2A3346;
+    --paper:#F6F4EF;
+    --paper-line:#E1DDD1;
+    --signal:#22A67A;
+    --signal-dim:#17624A;
+    --coral:#E8523A;
+    --text-on-ink:#E9ECF2;
+    --muted-on-ink:#8A93A6;
+    --text-on-paper:#181D26;
+    --muted-on-paper:#6E6A5D;
+    --stage-blue:#3E7CB8;
+    --stage-amber:#D9A441;
+    --radius:14px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--text-on-paper);
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--signal); outline-offset:3px; border-radius:4px;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(16,21,31,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--ink-line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+    color:var(--text-on-ink);
+  }
+  .nav-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;}
+  .nav-links{display:flex; gap:22px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-size:13px; text-decoration:none; color:var(--muted-on-ink);
+    font-family:'JetBrains Mono',monospace; letter-spacing:0.02em;
+    transition:color 0.15s ease;
+  }
+  .nav-links a:hover{color:var(--signal);}
+  @media (max-width:640px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{
+    background:var(--ink); color:var(--text-on-ink);
+    padding:76px 0 64px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    color:var(--signal); letter-spacing:0.08em; text-transform:uppercase;
+    display:flex; align-items:center; gap:8px; margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--signal); display:inline-block;}
+  .hero h1{
+    font-size:clamp(34px,5vw,54px); font-weight:700; line-height:1.05;
+    max-width:780px;
+  }
+  .hero h1 span{color:var(--signal);}
+  .hero p.lede{
+    max-width:600px; margin-top:20px; font-size:17px; color:var(--muted-on-ink);
+  }
+  .hero-cta{display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;}
+  .btn{
+    font-family:'JetBrains Mono',monospace; font-size:13px;
+    padding:12px 20px; border-radius:8px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid transparent; transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn-solid{background:var(--signal); color:#0B1712; font-weight:600;}
+  .btn-solid:hover{transform:translateY(-1px); background:#2CC189;}
+  .btn-line{border-color:var(--ink-line); color:var(--text-on-ink);}
+  .btn-line:hover{border-color:var(--signal); color:var(--signal);}
+
+  /* PIPELINE SIGNATURE */
+  .pipeline{
+    margin-top:56px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+  }
+  @media (max-width:820px){ .pipeline{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .pipeline{grid-template-columns:1fr;} }
+  .stage{
+    background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius);
+    padding:16px 16px 18px; opacity:0; transform:translateY(10px);
+    animation:rise 0.6s ease forwards;
+  }
+  .stage:nth-child(1){animation-delay:0.05s;}
+  .stage:nth-child(2){animation-delay:0.2s;}
+  .stage:nth-child(3){animation-delay:0.35s;}
+  .stage:nth-child(4){animation-delay:0.5s;}
+  @keyframes rise{to{opacity:1; transform:translateY(0);}}
+  .stage-label{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--muted-on-ink); margin-bottom:12px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .dot{width:8px; height:8px; border-radius:50%; display:inline-block;}
+  .stage:nth-child(1) .dot{background:var(--stage-blue);}
+  .stage:nth-child(2) .dot{background:var(--stage-amber);}
+  .stage:nth-child(3) .dot{background:#B98CE0;}
+  .stage:nth-child(4) .dot{background:var(--signal);}
+  .stage-card{
+    background:var(--ink); border:1px solid var(--ink-line); border-radius:9px;
+    padding:12px; font-size:13px; color:var(--text-on-ink); line-height:1.45;
+    transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .stage:hover .stage-card{border-color:var(--signal); transform:translateY(-2px);}
+
+  /* SECTION HEADERS */
+  section{padding:64px 0;}
+  .sec-head{margin-bottom:36px;}
+  .sec-eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--signal-dim); margin-bottom:8px;
+  }
+  .on-ink .sec-eyebrow{color:var(--signal);}
+  .sec-head h2{font-size:clamp(24px,3vw,32px);}
+
+  /* ACHIEVEMENTS */
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  }
+  @media (max-width:820px){.stats{grid-template-columns:1fr 1fr;}}
+  @media (max-width:480px){.stats{grid-template-columns:1fr;}}
+  .stat{
+    background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius);
+    padding:22px 18px;
+  }
+  .stat-num{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; color:var(--coral);
+    line-height:1;
+  }
+  .stat-label{margin-top:10px; font-size:13.5px; color:var(--muted-on-paper);}
+
+  /* CAPABILITIES */
+  .on-ink{background:var(--ink); color:var(--text-on-ink);}
+  .cap-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:760px){.cap-grid{grid-template-columns:1fr;}}
+  .cap-card{
+    background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius);
+    padding:26px;
+  }
+  .cap-card h3{font-size:19px; margin-bottom:6px; color:var(--text-on-ink);}
+  .cap-card .cap-tag{
+    font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--signal);
+    letter-spacing:0.05em; text-transform:uppercase; margin-bottom:14px; display:block;
+  }
+  .cap-card ul{margin:0; padding-left:18px; color:var(--muted-on-ink); font-size:14.5px;}
+  .cap-card li{margin-bottom:9px;}
+  .cap-card li::marker{color:var(--signal);}
+
+  /* TIMELINE */
+  .timeline{position:relative; padding-left:26px; border-left:2px solid var(--paper-line);}
+  .role{position:relative; padding-bottom:38px;}
+  .role:last-child{padding-bottom:0;}
+  .role::before{
+    content:""; position:absolute; left:-32px; top:4px;
+    width:12px; height:12px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--signal);
+  }
+  .role-head{
+    display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:4px;
+  }
+  .role-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px;}
+  .role-dates{
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted-on-paper);
+    background:#fff; border:1px solid var(--paper-line); border-radius:20px; padding:3px 10px;
+  }
+  .role-org{font-size:14px; color:var(--muted-on-paper); margin-bottom:12px;}
+  .role-org b{color:var(--text-on-paper); font-weight:600;}
+  .role ul{margin:0; padding-left:18px; font-size:14.5px;}
+  .role li{margin-bottom:7px;}
+  .role li::marker{color:var(--coral);}
+
+  /* TOOLS */
+  .tools-wrap{display:flex; flex-wrap:wrap; gap:10px;}
+  .tool-badge{
+    font-family:'JetBrains Mono',monospace; font-size:13px;
+    border:1px solid var(--ink-line); border-radius:8px; padding:9px 14px;
+    color:var(--text-on-ink); background:var(--ink-soft);
+  }
+
+  /* FOOTER */
+  footer{background:var(--ink); color:var(--muted-on-ink); padding:48px 0 40px; border-top:1px solid var(--ink-line);}
+  .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:flex-end;}
+  .foot-title{color:var(--text-on-ink); font-size:20px; margin-bottom:6px;}
+  .foot-links{display:flex; gap:18px; flex-wrap:wrap;}
+  .foot-links a{
+    font-family:'JetBrains Mono',monospace; font-size:13px; text-decoration:none;
+    color:var(--text-on-ink); border-bottom:1px solid var(--ink-line); padding-bottom:2px;
+    transition:border-color 0.15s ease, color 0.15s ease;
+  }
+  .foot-links a:hover{color:var(--signal); border-color:var(--signal);}
+  .foot-note{margin-top:32px; font-size:12px; color:#565F72;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-name">RODEL C. BANTOG</div>
+    <ul class="nav-links">
+      <li><a href="#build">Builds</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Open to work · Remote / GHL Specialist</div>
+    <h1>CRM systems, websites, and social pipelines that move leads to <span>Won</span>.</h1>
+    <p class="lede">I build the GoHighLevel websites, funnels, and automations behind a business, then run the social campaigns and growth motion that fill them — from first ad click to signed member.</p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="mailto:rodelbng@gmail.com">Email — rodelbng@gmail.com</a>
+      <a class="btn btn-line" href="tel:+639977034436">Call — +63 997 703 4436</a>
+      <a class="btn btn-line" href="https://wa.me/639352254664" target="_blank" rel="noopener">WhatsApp — +63 935 225 4664</a>
+    </div>
+
+    <div class="pipeline">
+      <div class="stage">
+        <div class="stage-label"><span>Build</span><span class="dot"></span></div>
+        <div class="stage-card">Theme room — preview a property in Abstract, Natural, Classy or Urban style before buying or renting</div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span>Automate</span><span class="dot"></span></div>
+        <div class="stage-card">CRM pipelines, workflows &amp; Stripe-integrated membership systems</div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span>Run Social</span><span class="dot"></span></div>
+        <div class="stage-card">Paid social campaigns managed end-to-end, from setup to engagement</div>
+      </div>
+      <div class="stage">
+        <div class="stage-label"><span>Grow</span><span class="dot"></span></div>
+        <div class="stage-card mono" style="font-family:'JetBrains Mono',monospace;">+35% downloads · 85 new merchants</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Track record</div>
+      <h2>Numbers from the last two roles</h2>
+    </div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">+35%</div>
+        <div class="stat-label">User downloads gained in 6 months through a hybrid physical + digital marketing push</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">+25%</div>
+        <div class="stat-label">B2B partnerships expanded — 85 new merchants brought onto the platform</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">−20%</div>
+        <div class="stat-label">Cut from customer onboarding time, speeding up adoption</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2,000+</div>
+        <div class="stat-label">Technical support queries resolved at a 95% satisfaction rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="build" class="on-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">What I build &amp; run</div>
+      <h2>Website &amp; CRM systems, social &amp; growth</h2>
+    </div>
+    <div class="cap-grid">
+      <div class="cap-card">
+        <span class="cap-tag">Website / Funnel / CRM</span>
+        <h3>GoHighLevel builds &amp; automation</h3>
+        <ul>
+          <li>Configured and managed GHL CRM pipelines, workflow automations, and Stripe-integrated membership systems for a live UK property investment platform</li>
+          <li>Built and maintained a custom property deals page, with reservation-status automation that updates listings from Available to Reserved on form submission</li>
+          <li>Designed and integrated a theme room into the website — lets prospective buyers and renters preview what a property would look like in different styles (Abstract, Natural, Classy, Urban) before purchasing or renting</li>
+          <li>Diagnosed and enforced platform policies by analyzing technical issues, bugs, and user violations, then documented findings into bug reports for engineering</li>
+          <li>Supported market research and acquisition analysis, evaluating letting-agent activity across target regions</li>
+        </ul>
+      </div>
+      <div class="cap-card">
+        <span class="cap-tag">Social &amp; growth</span>
+        <h3>Paid social, acquisition &amp; onboarding</h3>
+        <ul>
+          <li>Managed and monitored paid social ad campaigns, tracking performance and responding to engagement across channels</li>
+          <li>Conceptualized and executed a hybrid strategy — localized physical activations plus digital/social campaigns — to grow brand awareness and downloads</li>
+          <li>Structured and optimized the end-to-end customer onboarding pipeline to lower friction and improve early retention</li>
+          <li>Sourced and pitched strategic merchants and partners to integrate into a mobile app ecosystem, growing B2B reach</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Experience</div>
+      <h2>Full career timeline</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Virtual Assistant</span>
+          <span class="role-dates">06/2027 – Present</span>
+        </div>
+        <div class="role-org"><b>Feldon Richards</b> · Remote</div>
+        <ul>
+          <li>Managed and monitored paid social media ad campaigns, tracking performance and responding to engagement</li>
+          <li>Handled incoming customer inquiries across social channels, providing timely and accurate responses</li>
+          <li>Negotiated purchase pricing for used phones and other devices, balancing margin with competitive market rates</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">GHL Specialist / Property Acquisition Manager</span>
+          <span class="role-dates">04/2027 – 08/2027</span>
+        </div>
+        <div class="role-org"><b>Throneside Assets</b> · UK Property Investment Platform</div>
+        <ul>
+          <li>Configured and managed GoHighLevel CRM pipelines, workflow automations, and Stripe-integrated membership systems</li>
+          <li>Built and maintained a custom property deals page with reservation-status automation (Available → Reserved on form submission)</li>
+          <li>Designed and integrated a theme room feature, giving clients a visual preview of a property in different styles (Abstract, Natural, Classy, Urban) before they purchase or rent</li>
+          <li>Led outreach to UK letting agents and property sourcers, growing a tracked partner pipeline across firms including Sourced, Pearl Lemon Properties, Benham &amp; Reeves, and LCP Private Office</li>
+          <li>Supported acquisition research and market analysis, evaluating letting-agent activity in target regions such as Southampton and Bromley</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Senior Growth Manager <span style="font-weight:400;color:var(--muted-on-paper);font-size:14px;">(promoted from Growth Manager)</span></span>
+          <span class="role-dates">10/2025 – 06/2026</span>
+        </div>
+        <div class="role-org"><b>Trustclub</b> · Startup Mobile Application</div>
+        <ul>
+          <li>Spearheaded user acquisition and ecosystem growth for a fast-paced startup app, promoted from Growth Manager to Senior Growth Manager</li>
+          <li>Drove B2B expansion by identifying, pitching, and convincing strategic businesses and merchants to integrate into the app ecosystem</li>
+          <li>Conceptualized and executed a hybrid marketing strategy spanning localized physical activations and digital/social campaigns</li>
+          <li>Structured and optimized the end-to-end customer onboarding pipeline to lower friction and accelerate adoption</li>
+          <li>Acted as a core strategic contributor, analyzing operational data to forecast growth and suggest pivots to management</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Lead Generation Specialist</span>
+          <span class="role-dates">10/2022 – 06/2026</span>
+        </div>
+        <div class="role-org"><b>C2H</b> · B2B Prospecting</div>
+        <ul>
+          <li>Executed strategic prospecting and sourcing of high-value leads across B2B verticals using Apollo.io and LinkedIn Sales Navigator</li>
+          <li>Conducted deep-dive data enrichment and target research to extract verified contact information, company size, and revenue markers</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Customer Service Specialist</span>
+          <span class="role-dates">11/2021 – 07/2025</span>
+        </div>
+        <div class="role-org"><b>Nearsol Philippines</b> · Technical &amp; Customer Support</div>
+        <ul>
+          <li>Delivered technical support and troubleshooting for customer appliances, resolving functionality issues efficiently</li>
+          <li>Managed brand reputation by responding directly to customer inquiries and product reviews on the official website</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Customer Service Associate / Product Specialist</span>
+          <span class="role-dates">01/2018 – 10/2019</span>
+        </div>
+        <div class="role-org"><b>Teledirect Telecommerce Philippines</b> · Technical Operations</div>
+        <ul>
+          <li>Diagnosed basic technical and platform issues, identifying bugs and providing effective workarounds</li>
+          <li>Enforced platform policies by analyzing user violations and determining appropriate procedural sanctions</li>
+          <li>Mediated disputes between conflicting parties to reach fair, compliant resolutions</li>
+          <li>Generated comprehensive bug reports to assist engineering teams with platform optimization</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Technical Support</span>
+          <span class="role-dates">01/2017 – 01/2018</span>
+        </div>
+        <div class="role-org"><b>Orchid Cybertech Services</b> · Network Diagnostics</div>
+        <ul>
+          <li>Analyzed diagnostic data from DSLAM Managers and Network Hubs to isolate network issues</li>
+          <li>Conducted end-to-end, point-to-point testing to determine if faults originated from the user or provider side</li>
+          <li>Collaborated with on-site NOC Engineers to run advanced tests and dispatch field technicians when necessary</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Technical Support Representative</span>
+          <span class="role-dates">11/2015 – 11/2016</span>
+        </div>
+        <div class="role-org"><b>Teletech Holdings</b> · Customer Solutions</div>
+        <ul>
+          <li>Guided customers through step-by-step basic troubleshooting for immediate issue resolution</li>
+          <li>Executed point-to-point diagnostic testing and coordinated on-site validation with field engineers</li>
+          <li>Evaluated technical criteria to determine the necessity of field technician dispatches</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Project Engineer / Project Manager</span>
+          <span class="role-dates">05/2014 – 10/2015</span>
+        </div>
+        <div class="role-org"><b>Best Sun Solar Technologies</b> · Renewable Energy Systems</div>
+        <ul>
+          <li>Oversaw complete project implementation, ensuring timelines and technical specifications were met</li>
+          <li>Managed quality assurance protocols for incoming engineering materials and equipment</li>
+          <li>Conducted weekly inventory assessments and maintained control over material supply lines</li>
+          <li>Prepared daily, weekly, and monthly progress reports alongside future project projections</li>
+          <li>Led weekly progress review meetings with clients to align goals and update stakeholders</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="tools" class="on-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Stack</div>
+      <h2>Platforms &amp; tools</h2>
+    </div>
+    <div class="tools-wrap">
+      <span class="tool-badge">GoHighLevel (GHL)</span>
+      <span class="tool-badge">Stripe</span>
+      <span class="tool-badge">GoCardless</span>
+      <span class="tool-badge">CRM Workflow Automation</span>
+      <span class="tool-badge">Make.com</span>
+      <span class="tool-badge">Zapier</span>
+      <span class="tool-badge">n8n</span>
+      <span class="tool-badge">Apollo.io</span>
+      <span class="tool-badge">LinkedIn Sales Navigator</span>
+      <span class="tool-badge">SERP API</span>
+      <span class="tool-badge">Replicate.com</span>
+      <span class="tool-badge">Paid Social Ads</span>
+      <span class="tool-badge">Funnel / Landing Page Builds</span>
+      <span class="tool-badge">Slack</span>
+      <span class="tool-badge">Trello</span>
+      <span class="tool-badge">Customer Support Tooling</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-title">Let's talk about your build.</div>
+        <div class="mono" style="font-size:13px;">0116 Baybay, Angat, Bulacan</div>
+      </div>
+      <div class="foot-links">
+        <a href="mailto:rodelbng@gmail.com">rodelbng@gmail.com</a>
+        <a href="tel:+639977034436">+63 997 703 4436</a>
+        <a href="https://wa.me/639352254664" target="_blank" rel="noopener">WhatsApp: +63 935 225 4664</a>
+      </div>
+    </div>
+    <div class="foot-note">Rodel C. Bantog — CRM Systems, Web Builds &amp; Growth Portfolio</div>
+  </div>
+</footer>
+
+</body>
+</html>
