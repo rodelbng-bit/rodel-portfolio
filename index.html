@@ -203,6 +203,35 @@
   .role ul{margin:0; padding-left:18px; font-size:14.5px;}
   .role li{margin-bottom:7px;}
   .role li::marker{color:var(--coral);}
+  .role-featured::before{background:var(--signal);}
+  .role-badge{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em; text-transform:uppercase;
+    color:#fff; background:var(--signal-dim); border-radius:20px; padding:3px 10px;
+  }
+
+  /* SOCIAL SPOTLIGHT */
+  .social-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:760px){.social-grid{grid-template-columns:1fr;}}
+  .social-card{
+    background:#fff; border:1px solid var(--paper-line); border-top:4px solid var(--signal);
+    border-radius:var(--radius); padding:26px;
+  }
+  .social-card h3{font-size:20px;}
+  .social-meta{
+    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted-on-paper);
+    margin:6px 0 16px;
+  }
+  .social-card ul{margin:0 0 20px; padding-left:18px; font-size:14.5px;}
+  .social-card li{margin-bottom:7px;}
+  .social-card li::marker{color:var(--signal);}
+  .result-label{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--signal-dim); margin-bottom:10px;
+  }
+  .results{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .result{background:var(--paper); border:1px solid var(--paper-line); border-radius:10px; padding:14px;}
+  .result-num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:24px; color:var(--coral); line-height:1;}
+  .result-txt{margin-top:6px; font-size:12.5px; color:var(--muted-on-paper);}
 
   /* TOOLS */
   .tools-wrap{display:flex; flex-wrap:wrap; gap:10px;}
@@ -233,6 +262,7 @@
   <div class="nav-inner">
     <div class="nav-name">RODEL C. BANTOG</div>
     <ul class="nav-links">
+      <li><a href="#social">Social</a></li>
       <li><a href="#build">Builds</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#tools">Tools</a></li>
@@ -302,6 +332,48 @@
   </div>
 </section>
 
+<section id="social">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Current roles · Social Media Manager</div>
+      <h2>Running social for two brands</h2>
+    </div>
+    <div class="social-grid">
+      <div class="social-card">
+        <h3>Mack Maids</h3>
+        <div class="social-meta">Commercial cleaning + business academy · 08/2026 – Present</div>
+        <ul>
+          <li>Plan, create, and publish Facebook, Instagram, and TikTok content: posts, graphics, and captions</li>
+          <li>Respond to comments and DMs, and route interested followers to a booking call</li>
+          <li>Connect social to the CRM: TikTok comment and DM keywords trigger GHL tags, team alerts, and an instant booking-link reply</li>
+        </ul>
+        <div class="result-label">First 3 months</div>
+        <div class="results">
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Followers gained across channels</div></div>
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Accounts reached</div></div>
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Average engagement rate</div></div>
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Leads and booked calls from social</div></div>
+        </div>
+      </div>
+      <div class="social-card">
+        <h3>Throneside Assets</h3>
+        <div class="social-meta">UK property investment platform · 08/2026 – Present</div>
+        <ul>
+          <li>Plan, create, and publish Facebook and Instagram content: posts, graphics, and captions</li>
+          <li>Respond to comments and messages from investors and partners</li>
+        </ul>
+        <div class="result-label">First 3 months</div>
+        <div class="results">
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Followers gained across channels</div></div>
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Accounts reached</div></div>
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Average engagement rate</div></div>
+          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Investor enquiries from social</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="build" class="on-ink">
   <div class="wrap">
     <div class="sec-head">
@@ -342,16 +414,22 @@
     </div>
     <div class="timeline">
 
-      <div class="role">
+      <div class="role role-featured">
         <div class="role-head">
-          <span class="role-title">Social Media &amp; GHL Automation Specialist</span>
+          <span class="role-title">Social Media Manager &amp; GHL Automation Specialist</span>
           <span class="role-dates">08/2026 – Present</span>
+          <span class="role-badge">Featured</span>
         </div>
-        <div class="role-org"><b>Mack Maids</b> · Remote</div>
+        <div class="role-org"><b>Mack Maids</b> · Commercial Cleaning &amp; Mack Maids Academy · Remote</div>
         <ul>
-          <li>Manage social media channels, planning and publishing content and responding to engagement</li>
+          <li>Manage Facebook, Instagram, and TikTok channels, planning and publishing content and responding to engagement</li>
           <li>Create Facebook and Instagram content, including posts, graphics, and captions</li>
-          <li>Build and maintain GoHighLevel automations, including CRM pipelines and lead follow-up workflows</li>
+          <li>Migrated Mack Maids Academy from Skool to GoHighLevel: 5 courses with downloadable workbooks plus a members-only video course, plus paid offers (monthly subscription and lifetime) and a workflow that grants course access on payment</li>
+          <li>Set up a recurring weekly Live Q&amp;A inside the GHL course portal, replacing the Skool community call</li>
+          <li>Built a $10 Startup Guide sales funnel: landing page, GHL order form with live Stripe checkout, and a workflow that emails the PDF and tags the buyer</li>
+          <li>Rebuilt mackmaidsacademy.com page by page in GHL's native website builder and swapped it live on the existing domain</li>
+          <li>Built TikTok keyword automations: comments mentioning "cleaning" tag the contact and alert the team, and matching DMs get an instant reply with the booking link</li>
+          <li>Moved 240+ blog posts from Wix to the GHL blog and scheduled the publishing calendar through 2027 using the GHL API</li>
         </ul>
       </div>
 
@@ -368,10 +446,11 @@
         </ul>
       </div>
 
-      <div class="role">
+      <div class="role role-featured">
         <div class="role-head">
           <span class="role-title">Social Media Manager</span>
           <span class="role-dates">08/2026 – Present</span>
+          <span class="role-badge">Featured</span>
         </div>
         <div class="role-org"><b>Throneside Assets</b> · UK Property Investment Platform</div>
         <ul>
