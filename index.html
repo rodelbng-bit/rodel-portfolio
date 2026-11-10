@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rodel C. Bantog — CRM Systems, Web Builds &amp; Growth</title>
+<title>Rodel C. Bantog — GoHighLevel Specialist</title>
+<meta name="description" content="Rodel C. Bantog — GoHighLevel (GHL) specialist in the Philippines. Websites, funnels, Stripe checkouts, memberships, CRM pipelines and workflow automations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -48,7 +49,7 @@
   :focus-visible{outline:2px solid var(--signal); outline-offset:3px; border-radius:4px;}
 
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
-  @media (max-width:640px){.wrap{padding:0 20px;}}
+  @media (max-width:640px){.wrap{padding:0 16px;}}
 
   /* NAV */
   nav{
@@ -58,11 +59,12 @@
     border-bottom:1px solid var(--ink-line);
   }
   .nav-inner{
-    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
-    display:flex; align-items:center; justify-content:space-between;
+    max-width:var(--maxw); margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
     color:var(--text-on-ink);
   }
   .nav-name{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;}
+  .nav-name small{font-family:'JetBrains Mono',monospace; font-weight:400; font-size:11px; color:var(--signal); margin-left:8px; letter-spacing:0.05em;}
   .nav-links{display:flex; gap:22px; list-style:none; margin:0; padding:0;}
   .nav-links a{
     font-size:13px; text-decoration:none; color:var(--muted-on-ink);
@@ -70,12 +72,17 @@
     transition:color 0.15s ease;
   }
   .nav-links a:hover{color:var(--signal);}
-  @media (max-width:640px){ .nav-links{display:none;} }
+  .nav-cta{
+    font-family:'JetBrains Mono',monospace; font-size:12px; text-decoration:none;
+    background:var(--signal); color:#0B1712; font-weight:600; padding:8px 14px; border-radius:8px; white-space:nowrap;
+  }
+  @media (max-width:820px){ .nav-links{display:none;} }
+  @media (max-width:420px){ .nav-name small{display:none;} }
 
   /* HERO */
   .hero{
     background:var(--ink); color:var(--text-on-ink);
-    padding:76px 0 64px;
+    padding:72px 0 64px;
   }
   .eyebrow{
     font-family:'JetBrains Mono',monospace; font-size:12.5px;
@@ -84,19 +91,19 @@
   }
   .eyebrow::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--signal); display:inline-block;}
   .hero h1{
-    font-size:clamp(34px,5vw,54px); font-weight:700; line-height:1.05;
-    max-width:780px;
+    font-size:clamp(32px,5vw,54px); font-weight:700; line-height:1.05;
+    max-width:820px;
   }
   .hero h1 span{color:var(--signal);}
   .hero p.lede{
-    max-width:600px; margin-top:20px; font-size:17px; color:var(--muted-on-ink);
+    max-width:640px; margin-top:20px; font-size:17px; color:var(--muted-on-ink);
   }
   .hero-cta{display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;}
   .btn{
     font-family:'JetBrains Mono',monospace; font-size:13px;
     padding:12px 20px; border-radius:8px; text-decoration:none;
     display:inline-flex; align-items:center; gap:8px;
-    border:1px solid transparent; transition:transform 0.15s ease, background 0.15s ease;
+    border:1px solid transparent; transition:transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
   .btn-solid{background:var(--signal); color:#0B1712; font-weight:600;}
   .btn-solid:hover{transform:translateY(-1px); background:#2CC189;}
@@ -104,150 +111,174 @@
   .btn-line:hover{border-color:var(--signal); color:var(--signal);}
   .btn-icon{padding:0 12px; align-self:stretch; justify-content:center;}
 
-  /* PIPELINE SIGNATURE */
-  .pipeline{
-    margin-top:56px;
+  /* BUILD COUNTERS */
+  .counters{
+    margin-top:52px;
     display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
   }
-  @media (max-width:820px){ .pipeline{grid-template-columns:1fr 1fr;} }
-  @media (max-width:480px){ .pipeline{grid-template-columns:1fr;} }
-  .stage{
+  @media (max-width:820px){ .counters{grid-template-columns:1fr 1fr;} }
+  .counter{
     background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius);
-    padding:16px 16px 18px; opacity:0; transform:translateY(10px);
+    padding:18px; opacity:0; transform:translateY(10px);
     animation:rise 0.6s ease forwards;
   }
-  .stage:nth-child(1){animation-delay:0.05s;}
-  .stage:nth-child(2){animation-delay:0.2s;}
-  .stage:nth-child(3){animation-delay:0.35s;}
-  .stage:nth-child(4){animation-delay:0.5s;}
+  .counter:nth-child(2){animation-delay:0.12s;}
+  .counter:nth-child(3){animation-delay:0.24s;}
+  .counter:nth-child(4){animation-delay:0.36s;}
   @keyframes rise{to{opacity:1; transform:translateY(0);}}
-  .stage-label{
-    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
-    text-transform:uppercase; color:var(--muted-on-ink); margin-bottom:12px;
-    display:flex; align-items:center; justify-content:space-between;
-  }
-  .dot{width:8px; height:8px; border-radius:50%; display:inline-block;}
-  .stage:nth-child(1) .dot{background:var(--stage-blue);}
-  .stage:nth-child(2) .dot{background:var(--stage-amber);}
-  .stage:nth-child(3) .dot{background:#B98CE0;}
-  .stage:nth-child(4) .dot{background:var(--signal);}
-  .stage-card{
-    background:var(--ink); border:1px solid var(--ink-line); border-radius:9px;
-    padding:12px; font-size:13px; color:var(--text-on-ink); line-height:1.45;
-    transition:border-color 0.2s ease, transform 0.2s ease;
-  }
-  .stage:hover .stage-card{border-color:var(--signal); transform:translateY(-2px);}
+  .counter-num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:32px; color:var(--signal); line-height:1;}
+  .counter-label{margin-top:8px; font-size:13px; color:var(--muted-on-ink); line-height:1.4;}
 
   /* SECTION HEADERS */
-  section{padding:64px 0;}
-  .sec-head{margin-bottom:36px;}
+  section{padding:68px 0;}
+  .sec-head{margin-bottom:36px; max-width:720px;}
   .sec-eyebrow{
     font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:0.08em;
     text-transform:uppercase; color:var(--signal-dim); margin-bottom:8px;
   }
+  .on-ink{background:var(--ink); color:var(--text-on-ink);}
   .on-ink .sec-eyebrow{color:var(--signal);}
   .sec-head h2{font-size:clamp(24px,3vw,32px);}
+  .sec-head p{margin:10px 0 0; color:var(--muted-on-paper); font-size:15.5px;}
+  .on-ink .sec-head p{color:var(--muted-on-ink);}
 
-  /* ACHIEVEMENTS */
-  .stats{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  /* CASE STUDIES */
+  .cases{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:820px){.cases{grid-template-columns:1fr;}}
+  .case{
+    background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius);
+    padding:26px; display:flex; flex-direction:column;
+    transition:border-color 0.2s ease, transform 0.2s ease;
   }
+  .case:hover{border-color:var(--signal); transform:translateY(-2px);}
+  .case-client{
+    font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--signal-dim); margin-bottom:8px;
+  }
+  .case h3{font-size:20px; line-height:1.25; margin-bottom:16px;}
+  .case-row{margin-bottom:14px;}
+  .case-row:last-of-type{margin-bottom:0;}
+  .case-k{
+    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    text-transform:uppercase; color:var(--muted-on-paper); margin-bottom:4px;
+  }
+  .case-row p{margin:0; font-size:14.5px;}
+  .case-row ul{margin:0; padding-left:18px; font-size:14.5px;}
+  .case-row li{margin-bottom:4px;}
+  .case-row li::marker{color:var(--signal);}
+  .case-out{
+    margin-top:18px; padding:12px 14px; border-radius:10px;
+    background:var(--paper); border:1px solid var(--paper-line); font-size:14px;
+  }
+  .case-out b{color:var(--signal-dim);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:16px;}
+  .chip{
+    font-family:'JetBrains Mono',monospace; font-size:11px; padding:4px 9px; border-radius:20px;
+    background:var(--paper); border:1px solid var(--paper-line); color:var(--muted-on-paper);
+  }
+  .case-link{
+    margin-top:16px; font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--signal-dim);
+    text-decoration:none; border-bottom:1px solid currentColor; align-self:flex-start;
+  }
+
+  /* SERVICES */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:900px){.svc-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.svc-grid{grid-template-columns:1fr;}}
+  .svc{
+    background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius); padding:22px;
+  }
+  .svc-num{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--signal);}
+  .svc h3{font-size:17px; margin:8px 0 8px; color:var(--text-on-ink);}
+  .svc p{margin:0; font-size:14px; color:var(--muted-on-ink);}
+
+  /* PROCESS */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; counter-reset:step;}
+  @media (max-width:820px){.steps{grid-template-columns:1fr 1fr;}}
+  @media (max-width:480px){.steps{grid-template-columns:1fr;}}
+  .step{background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius); padding:20px;}
+  .step::before{
+    counter-increment:step; content:"0" counter(step);
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:26px; color:var(--coral); display:block; line-height:1;
+  }
+  .step h3{font-size:16px; margin:12px 0 6px;}
+  .step p{margin:0; font-size:14px; color:var(--muted-on-paper);}
+
+  /* BEYOND GHL */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
   @media (max-width:820px){.stats{grid-template-columns:1fr 1fr;}}
   @media (max-width:480px){.stats{grid-template-columns:1fr;}}
-  .stat{
-    background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius);
-    padding:22px 18px;
-  }
-  .stat-num{
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:34px; color:var(--coral);
-    line-height:1;
-  }
+  .stat{background:#fff; border:1px solid var(--paper-line); border-radius:var(--radius); padding:22px 18px;}
+  .stat-num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:32px; color:var(--coral); line-height:1;}
   .stat-label{margin-top:10px; font-size:13.5px; color:var(--muted-on-paper);}
-
-  /* CAPABILITIES */
-  .on-ink{background:var(--ink); color:var(--text-on-ink);}
-  .cap-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
-  @media (max-width:760px){.cap-grid{grid-template-columns:1fr;}}
-  .cap-card{
-    background:var(--ink-soft); border:1px solid var(--ink-line); border-radius:var(--radius);
-    padding:26px;
+  .side-note{
+    margin-top:20px; background:#fff; border:1px solid var(--paper-line); border-left:4px solid var(--signal);
+    border-radius:var(--radius); padding:20px 22px; font-size:14.5px;
   }
-  .cap-card h3{font-size:19px; margin-bottom:6px; color:var(--text-on-ink);}
-  .cap-card .cap-tag{
-    font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--signal);
-    letter-spacing:0.05em; text-transform:uppercase; margin-bottom:14px; display:block;
-  }
-  .cap-card ul{margin:0; padding-left:18px; color:var(--muted-on-ink); font-size:14.5px;}
-  .cap-card li{margin-bottom:9px;}
-  .cap-card li::marker{color:var(--signal);}
+  .side-note h3{font-size:17px; margin-bottom:6px;}
+  .side-note p{margin:0; color:var(--muted-on-paper);}
 
   /* TIMELINE */
   .timeline{position:relative; padding-left:26px; border-left:2px solid var(--paper-line);}
-  .role{position:relative; padding-bottom:38px;}
+  .role{position:relative; padding-bottom:34px;}
   .role:last-child{padding-bottom:0;}
   .role::before{
-    content:""; position:absolute; left:-32px; top:4px;
+    content:""; position:absolute; left:-33px; top:4px;
     width:12px; height:12px; border-radius:50%;
     background:var(--paper); border:2px solid var(--signal);
   }
-  .role-head{
-    display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:4px;
-  }
+  .role-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px; margin-bottom:4px;}
   .role-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:18px;}
   .role-dates{
     font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted-on-paper);
     background:#fff; border:1px solid var(--paper-line); border-radius:20px; padding:3px 10px;
   }
-  .role-org{font-size:14px; color:var(--muted-on-paper); margin-bottom:12px;}
+  .role-org{font-size:14px; color:var(--muted-on-paper); margin-bottom:10px;}
   .role-org b{color:var(--text-on-paper); font-weight:600;}
   .role ul{margin:0; padding-left:18px; font-size:14.5px;}
-  .role li{margin-bottom:7px;}
+  .role li{margin-bottom:6px;}
   .role li::marker{color:var(--coral);}
-  .role-featured::before{background:var(--signal);}
+  .role-ghl::before{background:var(--signal);}
   .role-badge{
     font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.05em; text-transform:uppercase;
     color:#fff; background:var(--signal-dim); border-radius:20px; padding:3px 10px;
   }
-
-  /* SOCIAL SPOTLIGHT */
-  .social-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
-  @media (max-width:760px){.social-grid{grid-template-columns:1fr;}}
-  .social-card{
-    background:#fff; border:1px solid var(--paper-line); border-top:4px solid var(--signal);
-    border-radius:var(--radius); padding:26px;
+  details.earlier{margin-top:8px;}
+  details.earlier summary{
+    cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--signal-dim);
+    padding:10px 0; list-style:none;
   }
-  .social-card h3{font-size:20px;}
-  .social-meta{
-    font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted-on-paper);
-    margin:6px 0 16px;
-  }
-  .social-card ul{margin:0 0 20px; padding-left:18px; font-size:14.5px;}
-  .social-card li{margin-bottom:7px;}
-  .social-card li::marker{color:var(--signal);}
-  .result-label{
-    font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em;
-    text-transform:uppercase; color:var(--signal-dim); margin-bottom:10px;
-  }
-  .results{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-  .result{background:var(--paper); border:1px solid var(--paper-line); border-radius:10px; padding:14px;}
-  .result-num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:24px; color:var(--coral); line-height:1;}
-  .result-txt{margin-top:6px; font-size:12.5px; color:var(--muted-on-paper);}
-  /* Hidden until the real 3-month numbers are in */
-  .social-card .result-label, .social-card .results{display:none;}
+  details.earlier summary::-webkit-details-marker{display:none;}
+  details.earlier summary::before{content:"+ "; }
+  details.earlier[open] summary::before{content:"− ";}
+  details.earlier .role:first-child{padding-top:16px;}
 
   /* TOOLS */
-  .tools-wrap{display:flex; flex-wrap:wrap; gap:10px;}
+  .tool-groups{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:820px){.tool-groups{grid-template-columns:1fr;}}
+  .tool-group h3{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--signal); margin-bottom:12px;}
+  .tools-wrap{display:flex; flex-wrap:wrap; gap:8px;}
   .tool-badge{
-    font-family:'JetBrains Mono',monospace; font-size:13px;
-    border:1px solid var(--ink-line); border-radius:8px; padding:9px 14px;
+    font-family:'JetBrains Mono',monospace; font-size:12.5px;
+    border:1px solid var(--ink-line); border-radius:8px; padding:8px 12px;
     color:var(--text-on-ink); background:var(--ink-soft);
   }
 
+  /* CONTACT */
+  .contact-box{
+    background:var(--ink); color:var(--text-on-ink); border-radius:20px; padding:40px;
+    display:grid; grid-template-columns:1.3fr 1fr; gap:28px; align-items:center;
+  }
+  @media (max-width:760px){.contact-box{grid-template-columns:1fr; padding:28px 22px;}}
+  .contact-box h2{font-size:clamp(24px,3vw,32px);}
+  .contact-box p{color:var(--muted-on-ink); margin:10px 0 0;}
+  .contact-actions{display:flex; flex-direction:column; gap:10px;}
+  .contact-actions .btn{justify-content:center;}
+
   /* FOOTER */
-  footer{background:var(--ink); color:var(--muted-on-ink); padding:48px 0 40px; border-top:1px solid var(--ink-line);}
-  .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px; align-items:flex-end;}
-  .foot-title{color:var(--text-on-ink); font-size:20px; margin-bottom:6px;}
-  .foot-links{display:flex; gap:18px; flex-wrap:wrap;}
+  footer{background:var(--ink); color:var(--muted-on-ink); padding:36px 0 32px; border-top:1px solid var(--ink-line);}
+  .foot-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:18px; align-items:center;}
+  .foot-links{display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
   .foot-links a{
     font-family:'JetBrains Mono',monospace; font-size:13px; text-decoration:none;
     color:var(--text-on-ink); border-bottom:1px solid var(--ink-line); padding-bottom:2px;
@@ -255,183 +286,333 @@
   }
   .foot-links a:hover{color:var(--signal); border-color:var(--signal);}
   .foot-links a.icon-link{border-bottom:0; padding-bottom:0; display:inline-flex; align-items:center;}
-  .foot-note{margin-top:32px; font-size:12px; color:#565F72;}
+  .foot-note{font-size:12px; color:#6B7488;}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-name">RODEL C. BANTOG</div>
+    <div class="nav-name">RODEL C. BANTOG<small>GHL SPECIALIST</small></div>
     <ul class="nav-links">
-      <li><a href="#social">Social</a></li>
-      <li><a href="#build">Builds</a></li>
+      <li><a href="#work">Case studies</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#tools">Tools</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
+    <a class="nav-cta" href="#contact">Hire me</a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Open to work · Remote / GHL Specialist</div>
-    <h1>CRM systems, websites, and social pipelines that move leads to <span>Won</span>.</h1>
-    <p class="lede">I build the GoHighLevel websites, funnels, and automations behind a business, then run the social campaigns and growth motion that fill them — from first ad click to signed member.</p>
+    <div class="eyebrow">GoHighLevel Specialist · Philippines · Remote</div>
+    <h1>GoHighLevel systems that take a lead from first click to <span>paid member</span>.</h1>
+    <p class="lede">I build GHL websites, funnels, Stripe checkouts, membership portals, pipelines and workflow automations, and I connect them to the social channels that bring leads in. Each build is tested from start to finish before it goes live.</p>
     <div class="hero-cta">
-      <a class="btn btn-solid" href="mailto:rodelbng@gmail.com">Email — rodelbng@gmail.com</a>
-      <a class="btn btn-line" href="tel:+639977034436">Call — +63 997 703 4436</a>
-      <a class="btn btn-line" href="https://wa.me/639352254664" target="_blank" rel="noopener">WhatsApp — +63 935 225 4664</a>
-      <a class="btn btn-line btn-icon" href="https://www.instagram.com/rksocmedmarketing/" target="_blank" rel="noopener" aria-label="Instagram — @rksocmedmarketing" title="Instagram — @rksocmedmarketing"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
-      <a class="btn btn-line btn-icon" href="https://www.tiktok.com/@rk.socmed.marketing" target="_blank" rel="noopener" aria-label="TikTok — @rk.socmed.marketing" title="TikTok — @rk.socmed.marketing"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+      <a class="btn btn-solid" href="https://wa.me/639352254664" target="_blank" rel="noopener">Message me on WhatsApp</a>
+      <a class="btn btn-line" href="#work">See case studies</a>
+      <a class="btn btn-line" href="https://drive.google.com/file/d/1JJG2mNogAy70xdmLoAE4b4hLEZZFZs_i/view" target="_blank" rel="noopener">Download resume</a>
     </div>
 
-    <div class="pipeline">
-      <div class="stage">
-        <div class="stage-label"><span>Build</span><span class="dot"></span></div>
-        <div class="stage-card">Theme room — preview a property in Abstract, Natural, Classy or Urban style before buying or renting</div>
+    <div class="counters">
+      <div class="counter">
+        <div class="counter-num">5</div>
+        <div class="counter-label">Courses migrated from Skool into a GHL membership portal</div>
       </div>
-      <div class="stage">
-        <div class="stage-label"><span>Automate</span><span class="dot"></span></div>
-        <div class="stage-card">CRM pipelines, workflows &amp; Stripe-integrated membership systems</div>
+      <div class="counter">
+        <div class="counter-num">240+</div>
+        <div class="counter-label">Blog posts moved from Wix to GHL and scheduled via the GHL API</div>
       </div>
-      <div class="stage">
-        <div class="stage-label"><span>Run Social</span><span class="dot"></span></div>
-        <div class="stage-card">Paid social campaigns managed end-to-end, from setup to engagement</div>
+      <div class="counter">
+        <div class="counter-num">2</div>
+        <div class="counter-label">Client businesses running on GHL systems I built</div>
       </div>
-      <div class="stage">
-        <div class="stage-label"><span>Grow</span><span class="dot"></span></div>
-        <div class="stage-card mono" style="font-family:'JetBrains Mono',monospace;">+35% downloads · 85 new merchants</div>
+      <div class="counter">
+        <div class="counter-num">2,000+</div>
+        <div class="counter-label">Technical support tickets resolved at 95% satisfaction</div>
       </div>
     </div>
   </div>
 </header>
 
-<section id="achievements">
+<section id="work">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-eyebrow">Track record</div>
-      <h2>Numbers from the last two roles</h2>
+      <div class="sec-eyebrow">Case studies</div>
+      <h2>GHL builds running live for real clients</h2>
+      <p>Each one covers the client's problem, what I built in GoHighLevel, and the result.</p>
+    </div>
+
+    <div class="cases">
+
+      <article class="case">
+        <div class="case-client">Mack Maids Academy · Online education</div>
+        <h3>Skool → GoHighLevel academy migration</h3>
+        <div class="case-row">
+          <div class="case-k">Problem</div>
+          <p>The academy's courses, payments and community call ran on Skool, separate from the business's CRM.</p>
+        </div>
+        <div class="case-row">
+          <div class="case-k">What I built</div>
+          <ul>
+            <li>5 courses with downloadable workbooks, plus a members-only video course</li>
+            <li>Monthly subscription and lifetime purchase offers</li>
+            <li>A workflow that grants course access automatically after payment</li>
+            <li>A recurring weekly Live Q&amp;A inside the GHL course portal</li>
+          </ul>
+        </div>
+        <div class="case-out"><b>Result:</b> the whole academy (content, payments, access and live calls) now runs inside one GHL account.</div>
+        <div class="chips"><span class="chip">Memberships</span><span class="chip">Courses</span><span class="chip">Stripe</span><span class="chip">Workflows</span></div>
+      </article>
+
+      <article class="case">
+        <div class="case-client">Mack Maids Academy · Info product</div>
+        <h3>$10 Startup Guide funnel with live checkout</h3>
+        <div class="case-row">
+          <div class="case-k">Problem</div>
+          <p>A low-ticket guide needed a way to sell itself and deliver itself, without anyone doing it by hand.</p>
+        </div>
+        <div class="case-row">
+          <div class="case-k">What I built</div>
+          <ul>
+            <li>Landing page and GHL order form</li>
+            <li>Live Stripe checkout</li>
+            <li>Workflow that tags the buyer and emails the PDF right after purchase</li>
+          </ul>
+        </div>
+        <div class="case-out"><b>Result:</b> visitors move from landing page to payment to delivery with no manual steps, and every buyer is tagged in the CRM.</div>
+        <div class="chips"><span class="chip">Funnels</span><span class="chip">Order forms</span><span class="chip">Stripe</span><span class="chip">Tagging</span></div>
+      </article>
+
+      <article class="case">
+        <div class="case-client">Mack Maids · Commercial cleaning</div>
+        <h3>TikTok comment &amp; DM keyword automation</h3>
+        <div class="case-row">
+          <div class="case-k">Problem</div>
+          <p>Interested people were commenting and messaging on TikTok, and replies depended on someone noticing in time.</p>
+        </div>
+        <div class="case-row">
+          <div class="case-k">What I built</div>
+          <ul>
+            <li>Comments mentioning "cleaning" tag the contact in GHL and alert the team</li>
+            <li>Matching DMs get an instant reply with the booking link</li>
+          </ul>
+        </div>
+        <div class="case-out"><b>Result:</b> social interest flows straight into the CRM, and every matching DM gets a booking link instantly.</div>
+        <div class="chips"><span class="chip">Social → CRM</span><span class="chip">Keyword triggers</span><span class="chip">Notifications</span></div>
+      </article>
+
+      <article class="case">
+        <div class="case-client">Mack Maids · Content operations</div>
+        <h3>240+ blog posts migrated from Wix via the GHL API</h3>
+        <div class="case-row">
+          <div class="case-k">Problem</div>
+          <p>Years of blog content sat on Wix after the website moved to GoHighLevel.</p>
+        </div>
+        <div class="case-row">
+          <div class="case-k">What I built</div>
+          <ul>
+            <li>Moved 240+ posts into the GHL blog</li>
+            <li>Used the GHL API to organise them and schedule publishing through 2027</li>
+          </ul>
+        </div>
+        <div class="case-out"><b>Result:</b> the blog lives in GHL, with a publishing calendar already scheduled through 2027.</div>
+        <div class="chips"><span class="chip">GHL API</span><span class="chip">Migration</span><span class="chip">Blog</span></div>
+      </article>
+
+      <article class="case">
+        <div class="case-client">Mack Maids Academy · Website</div>
+        <h3>mackmaidsacademy.com rebuilt in GHL</h3>
+        <div class="case-row">
+          <div class="case-k">Problem</div>
+          <p>The academy website had to move onto GoHighLevel without changing its domain.</p>
+        </div>
+        <div class="case-row">
+          <div class="case-k">What I built</div>
+          <ul>
+            <li>Rebuilt the site page by page in GHL's native website builder</li>
+            <li>Switched it live on the existing domain</li>
+          </ul>
+        </div>
+        <div class="case-out"><b>Result:</b> the website, funnels and course portal now all run on one platform.</div>
+        <div class="chips"><span class="chip">Websites</span><span class="chip">Domains</span></div>
+        <a class="case-link" href="https://mackmaidsacademy.com" target="_blank" rel="noopener">Visit the live site ↗</a>
+      </article>
+
+      <article class="case">
+        <div class="case-client">Throneside Assets · UK property investment</div>
+        <h3>Property deals page with reservation automation</h3>
+        <div class="case-row">
+          <div class="case-k">Problem</div>
+          <p>Property listings had to show live availability, and investors needed paid membership access.</p>
+        </div>
+        <div class="case-row">
+          <div class="case-k">What I built</div>
+          <ul>
+            <li>A deals page with form-triggered workflows that switch listings from <b>Available → Reserved</b></li>
+            <li>CRM pipelines, lead stages and workflow automations</li>
+            <li>Stripe-integrated membership system</li>
+            <li>An interactive theme room that previews a property in Abstract, Natural, Classy or Urban style</li>
+          </ul>
+        </div>
+        <div class="case-out"><b>Result:</b> listing status updates automatically when a reservation comes in, and every lead and member is tracked in GHL pipelines.</div>
+        <div class="chips"><span class="chip">Pipelines</span><span class="chip">Form triggers</span><span class="chip">Memberships</span><span class="chip">Stripe</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="services" class="on-ink">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Services</div>
+      <h2>What I can build in your GHL account</h2>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc-num">01</div>
+        <h3>Websites &amp; funnels</h3>
+        <p>Landing pages, sales funnels and full websites in GHL's builder, connected to your domain.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">02</div>
+        <h3>Payments &amp; memberships</h3>
+        <p>Order forms, Stripe checkout, subscriptions, one-time and lifetime offers, and course portals that unlock access after payment.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">03</div>
+        <h3>Pipelines &amp; CRM setup</h3>
+        <p>Pipelines, stages, tags, custom fields and forms that match how your business actually sells.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">04</div>
+        <h3>Workflow automation</h3>
+        <p>Purchase delivery, lead tagging, team alerts, status changes and follow-ups, all built and tested from trigger to final step.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">05</div>
+        <h3>Migrations &amp; integrations</h3>
+        <p>Move content and courses from Skool, Wix and other platforms into GHL, and connect tools through the GHL API, Zapier, Make or n8n.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-num">06</div>
+        <h3>Social → CRM journeys</h3>
+        <p>Comment and DM keyword automations that send social leads into GHL and reply with your booking link.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">How I work</div>
+      <h2>From first message to a working system</h2>
+      <p>Before GHL I spent years in technical support, so I test everything and document it in plain English.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Map</h3>
+        <p>We go through your current process, offers and tools, and agree on what the system needs to do.</p>
+      </div>
+      <div class="step">
+        <h3>Build</h3>
+        <p>I set up the pages, forms, pipelines and workflows in your GHL account.</p>
+      </div>
+      <div class="step">
+        <h3>Test</h3>
+        <p>I run test contacts and test payments through every path until each trigger and step works.</p>
+      </div>
+      <div class="step">
+        <h3>Hand over</h3>
+        <p>You get written notes on how everything works, and I stay available for changes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beyond" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-eyebrow">Beyond GHL</div>
+      <h2>Growth, sales and support experience</h2>
+      <p>The business background I bring to every build.</p>
     </div>
     <div class="stats">
       <div class="stat">
         <div class="stat-num">+35%</div>
-        <div class="stat-label">User downloads gained in 6 months through a hybrid physical + digital marketing push</div>
+        <div class="stat-label">App downloads in 6 months at Trustclub through combined in-person and digital campaigns</div>
       </div>
       <div class="stat">
-        <div class="stat-num">+25%</div>
-        <div class="stat-label">B2B partnerships expanded — 85 new merchants brought onto the platform</div>
+        <div class="stat-num">85</div>
+        <div class="stat-label">New merchant partners onboarded, growing B2B partnerships by 25%</div>
       </div>
       <div class="stat">
         <div class="stat-num">−20%</div>
-        <div class="stat-label">Cut from customer onboarding time, speeding up adoption</div>
+        <div class="stat-label">Shorter customer onboarding after redesigning the onboarding steps</div>
       </div>
       <div class="stat">
-        <div class="stat-num">2,000+</div>
-        <div class="stat-label">Technical support queries resolved at a 95% satisfaction rate</div>
+        <div class="stat-num">95%</div>
+        <div class="stat-label">Customer satisfaction across 2,000+ technical support queries</div>
       </div>
+    </div>
+    <div class="side-note">
+      <h3>I also run the social channels that feed these systems</h3>
+      <p>I plan and publish Facebook, Instagram and TikTok content for Mack Maids and Throneside Assets: graphics, captions, comment and DM replies, and steering inquiries toward a booking. That's why my GHL builds connect to the places leads actually come from.</p>
     </div>
   </div>
 </section>
 
-<section id="social">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-eyebrow">Current roles · Social Media Manager</div>
-      <h2>Running social for two brands</h2>
-    </div>
-    <div class="social-grid">
-      <div class="social-card">
-        <h3>Mack Maids</h3>
-        <div class="social-meta">Commercial cleaning + business academy · 08/2026 – Present</div>
-        <ul>
-          <li>Plan, create, and publish Facebook, Instagram, and TikTok content: posts, graphics, and captions</li>
-          <li>Respond to comments and DMs, and route interested followers to a booking call</li>
-          <li>Connect social to the CRM: TikTok comment and DM keywords trigger GHL tags, team alerts, and an instant booking-link reply</li>
-        </ul>
-        <div class="result-label">First 3 months</div>
-        <div class="results">
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Followers gained across channels</div></div>
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Accounts reached</div></div>
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Average engagement rate</div></div>
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Leads and booked calls from social</div></div>
-        </div>
-      </div>
-      <div class="social-card">
-        <h3>Throneside Assets</h3>
-        <div class="social-meta">UK property investment platform · 08/2026 – Present</div>
-        <ul>
-          <li>Plan, create, and publish Facebook and Instagram content: posts, graphics, and captions</li>
-          <li>Respond to comments and messages from investors and partners</li>
-        </ul>
-        <div class="result-label">First 3 months</div>
-        <div class="results">
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Followers gained across channels</div></div>
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Accounts reached</div></div>
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Average engagement rate</div></div>
-          <div class="result"><div class="result-num">TODO</div><div class="result-txt">Investor enquiries from social</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="build" class="on-ink">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-eyebrow">What I build &amp; run</div>
-      <h2>Website &amp; CRM systems, social &amp; growth</h2>
-    </div>
-    <div class="cap-grid">
-      <div class="cap-card">
-        <span class="cap-tag">Website / Funnel / CRM</span>
-        <h3>GoHighLevel builds &amp; automation</h3>
-        <ul>
-          <li>Configured and managed GHL CRM pipelines, workflow automations, and Stripe-integrated membership systems for a live UK property investment platform</li>
-          <li>Built and maintained a custom property deals page, with reservation-status automation that updates listings from Available to Reserved on form submission</li>
-          <li>Designed and integrated a theme room into the website — lets prospective buyers and renters preview what a property would look like in different styles (Abstract, Natural, Classy, Urban) before purchasing or renting</li>
-          <li>Diagnosed and enforced platform policies by analyzing technical issues, bugs, and user violations, then documented findings into bug reports for engineering</li>
-          <li>Supported market research and acquisition analysis, evaluating letting-agent activity across target regions</li>
-        </ul>
-      </div>
-      <div class="cap-card">
-        <span class="cap-tag">Social &amp; growth</span>
-        <h3>Paid social, acquisition &amp; onboarding</h3>
-        <ul>
-          <li>Managed and monitored paid social ad campaigns, tracking performance and responding to engagement across channels</li>
-          <li>Conceptualized and executed a hybrid strategy — localized physical activations plus digital/social campaigns — to grow brand awareness and downloads</li>
-          <li>Structured and optimized the end-to-end customer onboarding pipeline to lower friction and improve early retention</li>
-          <li>Sourced and pitched strategic merchants and partners to integrate into a mobile app ecosystem, growing B2B reach</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
+<section id="experience" style="padding-top:0;">
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-eyebrow">Experience</div>
-      <h2>Full career timeline</h2>
+      <h2>Career timeline</h2>
     </div>
     <div class="timeline">
 
-      <div class="role role-featured">
+      <div class="role role-ghl">
         <div class="role-head">
-          <span class="role-title">Social Media Manager &amp; GHL Automation Specialist</span>
-          <span class="role-dates">08/2026 – Present</span>
-          <span class="role-badge">Featured</span>
+          <span class="role-title">Social Media Manager / GHL Specialist</span>
+          <span class="role-dates">05/2026 – Present</span>
+          <span class="role-badge">GHL</span>
         </div>
-        <div class="role-org"><b>Mack Maids</b> · Commercial Cleaning &amp; Mack Maids Academy · Remote</div>
+        <div class="role-org"><b>Mack Maids / Mack Maids Academy</b> · Remote</div>
         <ul>
-          <li>Manage Facebook, Instagram, and TikTok channels, planning and publishing content and responding to engagement</li>
-          <li>Create Facebook and Instagram content, including posts, graphics, and captions</li>
-          <li>Migrated Mack Maids Academy from Skool to GoHighLevel: 5 courses with downloadable workbooks plus a members-only video course, plus paid offers (monthly subscription and lifetime) and a workflow that grants course access on payment</li>
-          <li>Set up a recurring weekly Live Q&amp;A inside the GHL course portal, replacing the Skool community call</li>
-          <li>Built a $10 Startup Guide sales funnel: landing page, GHL order form with live Stripe checkout, and a workflow that emails the PDF and tags the buyer</li>
-          <li>Rebuilt mackmaidsacademy.com page by page in GHL's native website builder and swapped it live on the existing domain</li>
-          <li>Built TikTok keyword automations: comments mentioning "cleaning" tag the contact and alert the team, and matching DMs get an instant reply with the booking link</li>
-          <li>Moved 240+ blog posts from Wix to the GHL blog and scheduled the publishing calendar through 2027 using the GHL API</li>
+          <li>Build, maintain and optimise GoHighLevel websites and landing pages, including the page-by-page rebuild of mackmaidsacademy.com</li>
+          <li>Migrated the academy from Skool to GHL: 5 courses, workbooks, members-only video, monthly and lifetime offers, and access granted on payment</li>
+          <li>Built the $10 Startup Guide funnel with live Stripe checkout, purchase tagging and automatic PDF delivery</li>
+          <li>Built TikTok comment and DM keyword automations; moved 240+ Wix blog posts into GHL using the GHL API</li>
+          <li>Plan and publish Facebook, Instagram and TikTok content, and monitor paid social and analytics</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <span class="role-title">Social Media Manager</span>
+          <span class="role-dates">08/2026 – Present</span>
+        </div>
+        <div class="role-org"><b>Throneside Assets</b> · UK Property Investment Platform</div>
+        <ul>
+          <li>Plan, create, schedule and publish Facebook and Instagram content for property investors and industry partners</li>
+          <li>Manage comments and DMs, and support partner outreach through social channels</li>
+        </ul>
+      </div>
+
+      <div class="role role-ghl">
+        <div class="role-head">
+          <span class="role-title">GHL Specialist / Property Acquisition Manager</span>
+          <span class="role-dates">04/2026 – 08/2026</span>
+          <span class="role-badge">GHL</span>
+        </div>
+        <div class="role-org"><b>Throneside Assets</b> · UK Property Investment Platform</div>
+        <ul>
+          <li>Configured GHL CRM pipelines, lead stages, workflow automations and Stripe-integrated memberships</li>
+          <li>Built the property deals page with form-triggered Available → Reserved workflows, plus the interactive theme room</li>
+          <li>Sourced and contacted UK letting agents and property sourcers, tracking partner conversations in a pipeline</li>
         </ul>
       </div>
 
@@ -442,52 +623,20 @@
         </div>
         <div class="role-org"><b>Feldon Richards</b> · Remote</div>
         <ul>
-          <li>Managed and monitored paid social media ad campaigns, tracking performance and responding to engagement</li>
-          <li>Handled incoming customer inquiries across social channels, providing timely and accurate responses</li>
-          <li>Negotiated purchase pricing for used phones and other devices, balancing margin with competitive market rates</li>
-        </ul>
-      </div>
-
-      <div class="role role-featured">
-        <div class="role-head">
-          <span class="role-title">Social Media Manager</span>
-          <span class="role-dates">08/2026 – Present</span>
-          <span class="role-badge">Featured</span>
-        </div>
-        <div class="role-org"><b>Throneside Assets</b> · UK Property Investment Platform</div>
-        <ul>
-          <li>Manage Throneside Assets' social media channels, planning and publishing content and responding to engagement</li>
-          <li>Create Facebook and Instagram content, including posts, graphics, and captions</li>
+          <li>Monitored paid social campaigns and engagement, answered customer inquiries and escalated issues</li>
+          <li>Negotiated purchase pricing for used phones and electronics</li>
         </ul>
       </div>
 
       <div class="role">
         <div class="role-head">
-          <span class="role-title">GHL Specialist / Property Acquisition Manager</span>
-          <span class="role-dates">04/2026 – 08/2026</span>
-        </div>
-        <div class="role-org"><b>Throneside Assets</b> · UK Property Investment Platform</div>
-        <ul>
-          <li>Configured and managed GoHighLevel CRM pipelines, workflow automations, and Stripe-integrated membership systems</li>
-          <li>Built and maintained a custom property deals page with reservation-status automation (Available → Reserved on form submission)</li>
-          <li>Designed and integrated a theme room feature, giving clients a visual preview of a property in different styles (Abstract, Natural, Classy, Urban) before they purchase or rent</li>
-          <li>Led outreach to UK letting agents and property sourcers, growing a tracked partner pipeline across firms including Sourced, Pearl Lemon Properties, Benham &amp; Reeves, and LCP Private Office</li>
-          <li>Supported acquisition research and market analysis, evaluating letting-agent activity in target regions such as Southampton and Bromley</li>
-        </ul>
-      </div>
-
-      <div class="role">
-        <div class="role-head">
-          <span class="role-title">Senior Growth Manager <span style="font-weight:400;color:var(--muted-on-paper);font-size:14px;">(promoted from Growth Manager)</span></span>
+          <span class="role-title">Senior Growth Manager</span>
           <span class="role-dates">10/2025 – 06/2026</span>
         </div>
-        <div class="role-org"><b>Trustclub</b> · Startup Mobile Application</div>
+        <div class="role-org"><b>Trustclub</b> · Startup Mobile App · promoted from Growth Manager</div>
         <ul>
-          <li>Spearheaded user acquisition and ecosystem growth for a fast-paced startup app, promoted from Growth Manager to Senior Growth Manager</li>
-          <li>Drove B2B expansion by identifying, pitching, and convincing strategic businesses and merchants to integrate into the app ecosystem</li>
-          <li>Conceptualized and executed a hybrid marketing strategy spanning localized physical activations and digital/social campaigns</li>
-          <li>Structured and optimized the end-to-end customer onboarding pipeline to lower friction and accelerate adoption</li>
-          <li>Acted as a core strategic contributor, analyzing operational data to forecast growth and suggest pivots to management</li>
+          <li>Led user acquisition across in-person activations and digital/social campaigns (+35% downloads in 6 months)</li>
+          <li>Pitched and onboarded merchant partners (+25% B2B partnerships, 85 merchants); cut onboarding time by 20%</li>
         </ul>
       </div>
 
@@ -498,77 +647,68 @@
         </div>
         <div class="role-org"><b>C2H</b> · B2B Prospecting</div>
         <ul>
-          <li>Executed strategic prospecting and sourcing of high-value leads across B2B verticals using Apollo.io and LinkedIn Sales Navigator</li>
-          <li>Conducted deep-dive data enrichment and target research to extract verified contact information, company size, and revenue markers</li>
+          <li>Researched target accounts and decision-makers with Apollo.io and LinkedIn Sales Navigator, and turned the results into verified lead lists ready for outreach</li>
         </ul>
       </div>
 
-      <div class="role">
-        <div class="role-head">
-          <span class="role-title">Customer Service Specialist</span>
-          <span class="role-dates">11/2021 – 07/2025</span>
-        </div>
-        <div class="role-org"><b>Nearsol Philippines</b> · Technical &amp; Customer Support</div>
-        <ul>
-          <li>Delivered technical support and troubleshooting for customer appliances, resolving functionality issues efficiently</li>
-          <li>Managed brand reputation by responding directly to customer inquiries and product reviews on the official website</li>
-        </ul>
-      </div>
+      <details class="earlier">
+        <summary>Earlier roles: technical &amp; customer support, project management (2014–2025)</summary>
 
-      <div class="role">
-        <div class="role-head">
-          <span class="role-title">Customer Service Associate / Product Specialist</span>
-          <span class="role-dates">01/2018 – 10/2019</span>
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Customer Service Specialist</span>
+            <span class="role-dates">11/2021 – 07/2025</span>
+          </div>
+          <div class="role-org"><b>Nearsol Philippines</b> · Technical &amp; Customer Support</div>
+          <ul>
+            <li>Resolved product and functionality issues with step-by-step troubleshooting; answered website inquiries and public reviews</li>
+          </ul>
         </div>
-        <div class="role-org"><b>Teledirect Telecommerce Philippines</b> · Technical Operations</div>
-        <ul>
-          <li>Diagnosed basic technical and platform issues, identifying bugs and providing effective workarounds</li>
-          <li>Enforced platform policies by analyzing user violations and determining appropriate procedural sanctions</li>
-          <li>Mediated disputes between conflicting parties to reach fair, compliant resolutions</li>
-          <li>Generated comprehensive bug reports to assist engineering teams with platform optimization</li>
-        </ul>
-      </div>
 
-      <div class="role">
-        <div class="role-head">
-          <span class="role-title">Technical Support</span>
-          <span class="role-dates">01/2017 – 01/2018</span>
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Customer Service Associate / Product Specialist</span>
+            <span class="role-dates">01/2018 – 10/2019</span>
+          </div>
+          <div class="role-org"><b>Teledirect Telecommerce Philippines</b> · Technical Operations</div>
+          <ul>
+            <li>Reproduced platform bugs, provided workarounds and wrote structured bug reports for engineering; reviewed policy violations and mediated user disputes</li>
+          </ul>
         </div>
-        <div class="role-org"><b>Orchid Cybertech Services</b> · Network Diagnostics</div>
-        <ul>
-          <li>Analyzed diagnostic data from DSLAM Managers and Network Hubs to isolate network issues</li>
-          <li>Conducted end-to-end, point-to-point testing to determine if faults originated from the user or provider side</li>
-          <li>Collaborated with on-site NOC Engineers to run advanced tests and dispatch field technicians when necessary</li>
-        </ul>
-      </div>
 
-      <div class="role">
-        <div class="role-head">
-          <span class="role-title">Technical Support Representative</span>
-          <span class="role-dates">11/2015 – 11/2016</span>
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Technical Support</span>
+            <span class="role-dates">01/2017 – 01/2018</span>
+          </div>
+          <div class="role-org"><b>Orchid Cybertech Services</b> · Network Diagnostics</div>
+          <ul>
+            <li>Isolated connectivity faults with DSLAM and network diagnostics, and coordinated with NOC engineers and field techs</li>
+          </ul>
         </div>
-        <div class="role-org"><b>Teletech Holdings</b> · Customer Solutions</div>
-        <ul>
-          <li>Guided customers through step-by-step basic troubleshooting for immediate issue resolution</li>
-          <li>Executed point-to-point diagnostic testing and coordinated on-site validation with field engineers</li>
-          <li>Evaluated technical criteria to determine the necessity of field technician dispatches</li>
-        </ul>
-      </div>
 
-      <div class="role">
-        <div class="role-head">
-          <span class="role-title">Project Engineer / Project Manager</span>
-          <span class="role-dates">05/2014 – 10/2015</span>
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Technical Support Representative</span>
+            <span class="role-dates">11/2015 – 11/2016</span>
+          </div>
+          <div class="role-org"><b>Teletech Holdings</b> · Customer Solutions</div>
+          <ul>
+            <li>Guided customers through structured troubleshooting and point-to-point diagnostic tests</li>
+          </ul>
         </div>
-        <div class="role-org"><b>Best Sun Solar Technologies</b> · Renewable Energy Systems</div>
-        <ul>
-          <li>Oversaw complete project implementation, ensuring timelines and technical specifications were met</li>
-          <li>Managed quality assurance protocols for incoming engineering materials and equipment</li>
-          <li>Conducted weekly inventory assessments and maintained control over material supply lines</li>
-          <li>Prepared daily, weekly, and monthly progress reports alongside future project projections</li>
-          <li>Led weekly progress review meetings with clients to align goals and update stakeholders</li>
-        </ul>
-      </div>
+
+        <div class="role">
+          <div class="role-head">
+            <span class="role-title">Project Engineer / Project Manager</span>
+            <span class="role-dates">05/2014 – 10/2015</span>
+          </div>
+          <div class="role-org"><b>Best Sun Solar Technologies</b> · Renewable Energy Systems</div>
+          <ul>
+            <li>Coordinated project delivery against schedules and quality requirements; prepared progress reports and led weekly client meetings</li>
+          </ul>
+        </div>
+      </details>
 
     </div>
   </div>
@@ -580,43 +720,74 @@
       <div class="sec-eyebrow">Stack</div>
       <h2>Platforms &amp; tools</h2>
     </div>
-    <div class="tools-wrap">
-      <span class="tool-badge">GoHighLevel (GHL)</span>
-      <span class="tool-badge">Stripe</span>
-      <span class="tool-badge">GoCardless</span>
-      <span class="tool-badge">CRM Workflow Automation</span>
-      <span class="tool-badge">Make.com</span>
-      <span class="tool-badge">Zapier</span>
-      <span class="tool-badge">n8n</span>
-      <span class="tool-badge">Apollo.io</span>
-      <span class="tool-badge">LinkedIn Sales Navigator</span>
-      <span class="tool-badge">SERP API</span>
-      <span class="tool-badge">Replicate.com</span>
-      <span class="tool-badge">Paid Social Ads</span>
-      <span class="tool-badge">Funnel / Landing Page Builds</span>
-      <span class="tool-badge">Slack</span>
-      <span class="tool-badge">Trello</span>
-      <span class="tool-badge">Customer Support Tooling</span>
+    <div class="tool-groups">
+      <div class="tool-group">
+        <h3>GoHighLevel</h3>
+        <div class="tools-wrap">
+          <span class="tool-badge">Websites &amp; funnels</span>
+          <span class="tool-badge">Order forms</span>
+          <span class="tool-badge">Memberships &amp; courses</span>
+          <span class="tool-badge">Pipelines</span>
+          <span class="tool-badge">Workflows</span>
+          <span class="tool-badge">Blog</span>
+          <span class="tool-badge">GHL API</span>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h3>Payments &amp; automation</h3>
+        <div class="tools-wrap">
+          <span class="tool-badge">Stripe</span>
+          <span class="tool-badge">GoCardless</span>
+          <span class="tool-badge">Zapier</span>
+          <span class="tool-badge">Make.com</span>
+          <span class="tool-badge">n8n</span>
+          <span class="tool-badge">SERP API</span>
+          <span class="tool-badge">Replicate.com</span>
+        </div>
+      </div>
+      <div class="tool-group">
+        <h3>Growth &amp; ops</h3>
+        <div class="tools-wrap">
+          <span class="tool-badge">Facebook</span>
+          <span class="tool-badge">Instagram</span>
+          <span class="tool-badge">TikTok</span>
+          <span class="tool-badge">Apollo.io</span>
+          <span class="tool-badge">LinkedIn Sales Navigator</span>
+          <span class="tool-badge">Slack</span>
+          <span class="tool-badge">Trello</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<footer id="contact">
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <div class="sec-eyebrow" style="color:var(--signal);">Available for new GHL projects</div>
+        <h2>Need a GHL build that works from day one?</h2>
+        <p>Tell me what you're selling and where your leads come from. I'll reply with how I'd set it up in GHL. Based in Angat, Bulacan, Philippines, and I work US, UK and AU hours.</p>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-solid" href="https://wa.me/639352254664" target="_blank" rel="noopener">WhatsApp — +63 935 225 4664</a>
+        <a class="btn btn-line" href="mailto:rodelbng@gmail.com">Email — rodelbng@gmail.com</a>
+        <a class="btn btn-line" href="https://drive.google.com/file/d/1JJG2mNogAy70xdmLoAE4b4hLEZZFZs_i/view" target="_blank" rel="noopener">Download resume (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div>
-        <div class="foot-title">Let's talk about your build.</div>
-        <div class="mono" style="font-size:13px;">0116 Baybay, Angat, Bulacan</div>
-      </div>
+      <div class="foot-note">© 2026 Rodel C. Bantog · GoHighLevel Specialist · Angat, Bulacan, Philippines</div>
       <div class="foot-links">
-        <a href="mailto:rodelbng@gmail.com">rodelbng@gmail.com</a>
         <a href="tel:+639977034436">+63 997 703 4436</a>
-        <a href="https://wa.me/639352254664" target="_blank" rel="noopener">WhatsApp: +63 935 225 4664</a>
         <a class="icon-link" href="https://www.instagram.com/rksocmedmarketing/" target="_blank" rel="noopener" aria-label="Instagram — @rksocmedmarketing" title="Instagram — @rksocmedmarketing"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
         <a class="icon-link" href="https://www.tiktok.com/@rk.socmed.marketing" target="_blank" rel="noopener" aria-label="TikTok — @rk.socmed.marketing" title="TikTok — @rk.socmed.marketing"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
       </div>
     </div>
-    <div class="foot-note">Rodel C. Bantog — CRM Systems, Web Builds &amp; Growth Portfolio</div>
   </div>
 </footer>
 
